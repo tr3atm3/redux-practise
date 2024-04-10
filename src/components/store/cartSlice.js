@@ -9,6 +9,12 @@ const cartSlice = createSlice({
     totalQuantity: 0,
   },
   reducers: {
+    initialRender(state, action) {
+      return {
+        ...state,
+        ...action.payload,
+      };
+    },
     toggleCart(state) {
       return { ...state, isCartVisible: !state.isCartVisible };
     },
@@ -81,6 +87,10 @@ const cartSlice = createSlice({
   },
 });
 
-export const { toggleCart, addItemsToCart, removeItemsFromCart } =
-  cartSlice.actions;
+export const {
+  toggleCart,
+  addItemsToCart,
+  removeItemsFromCart,
+  initialRender,
+} = cartSlice.actions;
 export default cartSlice.reducer;
